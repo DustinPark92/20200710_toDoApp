@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +16,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        let config = Realm.Configuration(
+            //스키마 버전이 첫번째 일수도 있고 두번쨰 일수도 있어.
+            schemaVersion: 2,
+
+            
+            migrationBlock: { migration, oldSchemaVersion in
+                
+                if (oldSchemaVersion < 1) {
+                    //ofType => category의 클래스이름
+                    migration.enumerateObjects(ofType: Category.className()) { (old, new) in
+                        
+                        new!["edit"] = false
+                    }
+                }
+                //버젼 바뀔때마다 계속 넣어야함.
+//                if (oldSchemaVersion < 1) {
+//                                   //ofType => category의 클래스이름
+//                                   migration.enumerateObjects(ofType: Category.className()) { (old, new) in
+//
+//                                       new!["edit"] = false
+//                                   }
+//                               }
+            })
+
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+
+        // Now that we've told Realm how to handle the schema change, opening the file
+        // will automatically perform the migration
+        
+        
+        
+        IQKeyboardManager.shared.enable = true
         return true
     }
 
