@@ -9,8 +9,6 @@
 import UIKit
 import RealmSwift
 
-
-
 class DetailViewViewController: UIViewController {
     
 //MARK: - Property
@@ -24,7 +22,6 @@ class DetailViewViewController: UIViewController {
     @IBOutlet weak var textFieldView: UIView!
     @IBOutlet weak var keyBoardInputView: UIView!
     @IBOutlet weak var textField: UITextField!
-    
     @IBOutlet weak var keyBoardInsideView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addButton: UIButton!
@@ -79,7 +76,7 @@ class DetailViewViewController: UIViewController {
         if makeANewDiary {
             makeAFirstTodo = true
         }
-        print(list.count)
+        
         tableView.reloadData()
         
     }

@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         configureTableView()
         configureUI()
         
@@ -46,10 +48,11 @@ class ViewController: UIViewController {
         
     }
     
-    
+  
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         
         tableView.reloadData()
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -79,6 +82,14 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func handleWidgetData(_ sender: UIBarButtonItem) {
+        
+        let share = UserDefaults(suiteName: "group.Dustin.-0200710-1st")
+        
+        share!.set("병호", forKey: "todo")
+        
+        
+    }
     @IBAction func handleAddButton(_ sender: UIButton) {
         
         let secondStoryBoard = UIStoryboard(name: "Main", bundle: nil)

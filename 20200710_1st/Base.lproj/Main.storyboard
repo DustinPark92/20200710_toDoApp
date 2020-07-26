@@ -8,6 +8,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Setting View Controller-->
+        <scene sceneID="8zy-YZ-nHh">
+            <objects>
+                <viewController id="DkC-sv-2RB" customClass="SettingViewController" customModule="_0200710_1st" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k3P-Uc-56o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbX-gx-kQ5">
+                                <rect key="frame" x="192" y="393" width="30" height="30"/>
+                                <state key="normal" title="압축"/>
+                                <connections>
+                                    <action selector="handleCompressed:" destination="DkC-sv-2RB" eventType="touchUpInside" id="sNV-Ph-b61"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Iu-4Z-Xbh">
+                                <rect key="frame" x="192" y="433" width="30" height="30"/>
+                                <state key="normal" title="백업"/>
+                                <connections>
+                                    <action selector="handleBackUpButton:" destination="DkC-sv-2RB" eventType="touchUpInside" id="tCn-p2-Xyc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dz-mI-YGy">
+                                <rect key="frame" x="192" y="473" width="30" height="30"/>
+                                <state key="normal" title="복구"/>
+                                <connections>
+                                    <action selector="handleRecoveryButton:" destination="DkC-sv-2RB" eventType="touchUpInside" id="mC5-7o-E4U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbe-WH-DYA">
+                                <rect key="frame" x="184" y="513" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="handleDismissView:" destination="DkC-sv-2RB" eventType="touchUpInside" id="NVe-X0-unv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6dz-mI-YGy" firstAttribute="centerX" secondItem="k3P-Uc-56o" secondAttribute="centerX" id="3O5-ho-j3D"/>
+                            <constraint firstItem="vbe-WH-DYA" firstAttribute="top" secondItem="6dz-mI-YGy" secondAttribute="bottom" constant="10" id="4EZ-QY-8CW"/>
+                            <constraint firstItem="1Iu-4Z-Xbh" firstAttribute="centerY" secondItem="k3P-Uc-56o" secondAttribute="centerY" id="KhY-hf-0Ka"/>
+                            <constraint firstItem="vbe-WH-DYA" firstAttribute="centerX" secondItem="k3P-Uc-56o" secondAttribute="centerX" id="MGP-W8-yQO"/>
+                            <constraint firstItem="6dz-mI-YGy" firstAttribute="top" secondItem="1Iu-4Z-Xbh" secondAttribute="bottom" constant="10" id="bdO-es-sCb"/>
+                            <constraint firstItem="RbX-gx-kQ5" firstAttribute="centerX" secondItem="k3P-Uc-56o" secondAttribute="centerX" id="jXa-Pb-laJ"/>
+                            <constraint firstItem="1Iu-4Z-Xbh" firstAttribute="centerX" secondItem="k3P-Uc-56o" secondAttribute="centerX" id="t64-h0-tcT"/>
+                            <constraint firstItem="1Iu-4Z-Xbh" firstAttribute="top" secondItem="RbX-gx-kQ5" secondAttribute="bottom" constant="10" id="wJi-H5-dTf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2wS-fC-Kc6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J3p-9k-HiL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tPI-bN-Qxm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2003" y="-584"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -89,6 +145,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="o7c-rq-5uO">
+                        <leftBarButtonItems>
+                            <barButtonItem title="위젯" id="Nhg-xj-2K9">
+                                <connections>
+                                    <action selector="handleWidgetData:" destination="BYZ-38-t0r" id="Uvz-Gj-zGn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="백업" id="jQu-j7-xJF">
+                                <connections>
+                                    <segue destination="DkC-sv-2RB" kind="show" id="N8m-jf-cJo"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="N5C-16-tVj">
                             <connections>
                                 <action selector="handleSearchBtn:" destination="BYZ-38-t0r" id="Hnp-pm-sTj"/>
