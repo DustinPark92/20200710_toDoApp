@@ -24,7 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // 앱보다 위젯이 먼저 실행될 수 있기 때문에
         let name = share?.object(forKey: "todo") as? String
         dateLabel.text = name ?? "할 일 없습니다."
-        
+        print(123)
         
     }
         
